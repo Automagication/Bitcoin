@@ -1,0 +1,38 @@
+<html>
+  <body>
+    <a [routerLink]="['/test']">Test</a>
+    <router-outlet></router-outlet>
+    <div style="margin-left: 260px;margin-right:600px">
+      <table class="table table-striped">
+        <tr>
+            <td style="padding-right: 0px">
+                  <tr  *ngFor="let key of keysArray">
+                    <td>
+                        {{key}}
+                    <td>
+                  </tr>
+            </td>
+            <td style="padding-left: 0px">
+                  <tr  *ngFor="let value of valuesArray">
+                    <td>
+                    15M:{{value['15m']}}
+                    </td>
+                    <td>
+                    LAST:{{value.last}}
+                    </td>
+                    <td>
+                    BUY:{{value.buy}}
+                    </td>
+                    <td>
+                    SELL:{{value.sell}}
+                    </td>
+                    <td>
+                    SYMBOL:{{value.symbol}}
+                    </td>
+                  </tr>
+            </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
