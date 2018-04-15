@@ -14,16 +14,26 @@ export class Component1Component implements OnInit {
   result:any[];
   keysArray:string[];
   valuesArray:TICKER[];
+  interval:any;
   constructor( private component1service: Component1Service)
   {
-      this.component1service.getExchangePrice().subscribe(data => {this.result = data;
+
+  }
+
+  refreshData()
+  {
+    this.component1service.getExchangePrice().subscribe(data => {this.result = data;
       this.keysArray = Object.keys(this.result);
       this.valuesArray = Object.values(this.result);
     });
   }
   ngOnInit()
    {
-
+      this.refreshData();
+      this.interval = setInterval(() =>
+      {
+        this.refreshData();
+      }, 5000);
    }
 }
 interface TICKER
